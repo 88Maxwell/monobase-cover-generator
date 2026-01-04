@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/bunny.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Monobase cover generator</title>
+    <script type="module" crossorigin src="/assets/index-BJw8KI3U.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-CftnXETP.css">
+  </head>
+  <body>
+    <div id="app">
+      <form class="form" id="form">
+        <h1>🐰 Generate monobase cover</h1>
+        <input type="file" id="file" accept="image/*" required />
+
+        <label>
+          Width:
+          <input type="number" id="width" value="800" min="200" />
+        </label>
+
+        <label>
+          Height:
+          <input type="number" id="height" value="600" min="200" />
+        </label>
+
+        <label>
+          Glass opacity (0–1):
+          <input
+            type="number"
+            id="opacity"
+            value="0.2"
+            step="0.01"
+            min="0"
+            max="1"
+          />
+        </label>
+
+        <div class="btn-box">
+          <button class="btn-generate" type="submit">Generate</button>
+          <button id="clear" style="display: none" type="button">Reset</button>
+          <button type="button" id="save" style="display: none">
+            Save image
+          </button>
+        </div>
+      </form>
+
+      <canvas id="canvas" style="display: none"></canvas>
+    </div>
+
+  </body>
+</html>
