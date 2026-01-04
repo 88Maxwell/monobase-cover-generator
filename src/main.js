@@ -99,7 +99,13 @@ form.addEventListener("submit", (e) => {
     ctx.drawImage(panel, glassX, glassY);
 
     // glass overlay
-    ctx.fillStyle = "rgba(255,255,255,0.28)";
+    const opacityInput = document.getElementById("opacity");
+    const opacity = Math.min(
+      Math.max(parseFloat(opacityInput.value) || 0.28, 0),
+      1
+    );
+
+    ctx.fillStyle = `rgba(255,255,255,${opacity})`;
     ctx.fillRect(glassX, glassY, glassW, glassH);
     ctx.restore();
 
@@ -134,7 +140,7 @@ form.addEventListener("submit", (e) => {
 // save
 saveBtn.addEventListener("click", () => {
   const link = document.createElement("a");
-  link.download = "glass-image.png";
+  link.download = "monobase-cover.png";
   link.href = canvas.toDataURL("image/png");
   link.click();
 });
@@ -145,4 +151,14 @@ clearBtn.addEventListener("click", () => {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   canvas.style.display = "none";
   saveBtn.style.display = "none";
+  clearBtn.style.display = "none";
+});
+
+// ===== показати Clear при виборі файлу =====
+fileInput.addEventListener("change", () => {
+  if (fileInput.files.length > 0) {
+    clearBtn.style.display = "inline-block";
+  } else {
+    clearBtn.style.display = "none";
+  }
 });
