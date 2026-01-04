@@ -1,3 +1,12 @@
-const ghpages = require("gh-pages");
+import ghpages from "gh-pages";
+import path from "path";
 
-ghpages.publish("dist", console.error);
+const buildPath = path.resolve("dist");
+
+ghpages.publish(buildPath, (err) => {
+  if (err) {
+    console.error("Publish error:", err);
+  } else {
+    console.log("Site published successfully!");
+  }
+});
