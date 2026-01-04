@@ -5,8 +5,8 @@ const buildPath = path.resolve("dist");
 
 ghpages.publish(buildPath, (err) => {
   if (err) {
-    console.error("Publish error:", err);
+    console.error("⚠️ Publish error:", err);
   } else {
-    console.log("Site published successfully!");
+    console.log("✅ Site published successfully!");
   }
 });
